@@ -11,4 +11,4 @@ Les commandes à lancer :
 # Exercice 2 - Robots
 
 - javac *.java (si pas déjà fait)
-- java TestMonde (étant donné qu'il est au tour par tour il faudra réutiliser la commande pour passer au tour suivant)
+- java TestMonde (étant donné qu'il est au tour par tour il faudra taper n'importe quelle lettre pour passer au tour suivant)
