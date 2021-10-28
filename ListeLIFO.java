@@ -20,8 +20,12 @@ public class ListeLIFO {
         this.liste.add(obj);
     }
 
-    public void pop() {
-        this.liste.remove(this.liste.size()-1);
+    public Object pop() {
+        if(!this.liste.isEmpty()) {    
+            return this.liste.remove(this.liste.size()-1);
+        }  else {
+            return null;
+        }
     }
 
     public Object get(int i) {
