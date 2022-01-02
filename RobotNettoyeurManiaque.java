@@ -10,7 +10,7 @@ public class RobotNettoyeurManiaque extends Robot {
 
     public void move(Monde m) {
         // Vérification de si la case sur laquelle il ce trouve est sale
-        if(!m.getTerrain(getI(), getJ()).isEmpty()) {
+        if(m.getTerrain(getI(), getJ()).isEmpty()) {
             // Aucun déplacement nécessaire
             return;
         }
@@ -18,10 +18,10 @@ public class RobotNettoyeurManiaque extends Robot {
         // Vérification autour si pas trouvé
         for(int i = -1; i <= 1; i++) {
             for(int j = -1; j <= 1; j++) {
-                int indexI = Math.min(Math.max(0, getI()+i), m.getDimension());
-                int indexJ = Math.min(Math.max(0, getJ()+j), m.getDimension());
+                int indexI = Math.min(Math.max(0, getI()+i), m.getDimension()-1);
+                int indexJ = Math.min(Math.max(0, getJ()+j), m.getDimension()-1);
 
-                if(!m.getTerrain(indexI, indexJ).isEmpty()) {
+                if(m.getTerrain(indexI, indexJ).isEmpty()) {
                     // Déplacement du robot
                     move(i,j);
                     return;
@@ -30,8 +30,8 @@ public class RobotNettoyeurManiaque extends Robot {
         }
 
         // Si rien trouvé, il bouge aléatoirement comme le robot idiot
-        int i = (int) (Math.random() * m.getDimension());
-        int j = (int) (Math.random() * m.getDimension());
+        int i = (int) (Math.random() * m.getDimension()-1);
+        int j = (int) (Math.random() * m.getDimension()-1);
 
         // Déplacement du robot
         move(i-getI(), j-getJ());
